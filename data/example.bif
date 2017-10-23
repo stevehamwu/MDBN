@@ -1,0 +1,40 @@
+// Bayesian network 
+network "EXAMPLE" { //5 variables and 5 probability distributions
+}
+variable  "B" { //2 values
+	type discrete[2] {  "True"  "False" };
+}
+variable  "M" { //2 values
+	type discrete[2] {  "True"  "False" };
+}
+variable  "I" { //2 values
+	type discrete[2] {  "True"  "False" };
+}
+variable  "G" { //2 values
+	type discrete[2] {  "True"  "False" };
+}
+variable  "J" { //2 values
+	type discrete[2] {  "True"  "False" };
+}
+probability ( "B" ) { //1 variable(s) and 2 values
+	table 
+		0.9	// p(True | evidence )
+		0.1; 	// p(False | evidence );
+}
+probability ( "M" ) { //1 variable(s) and 2 values
+	table 
+		0.1	// p(True | evidence )
+		0.9; 	// p(False | evidence );
+}
+probability ( "I"  "B"  "M" ) { //3 variable(s) and 8 values
+	table 
+		 0.9 0.5 0.5 0.1 0.1 0.5 0.5 0.9;
+}
+probability ( "G"  "B"  "I"  "M" ) { //4 variable(s) and 16 values
+	table 
+		 0.9 0.8 0.0 0.0 0.2 0.1 0.0 0.0 0.1 0.2 1.0 1.0 0.8 0.9 1.0 1.0;
+}
+probability ( "J"  "G" ) { //2 variable(s) and 4 values
+	table 
+		 0.9 1.0 0.1 0.0;
+}
