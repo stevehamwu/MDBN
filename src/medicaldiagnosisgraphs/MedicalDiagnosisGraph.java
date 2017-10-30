@@ -20,6 +20,8 @@ public class MedicalDiagnosisGraph {
 
 	Vector<double[]> theta;
 
+	int thetalength = 0;
+
 	private final String defaultBayesNetName = "MedicalDiagnosisNetwork";
 
 	public final static int MARGINAL_POSTERIOR = 1;
@@ -46,16 +48,31 @@ public class MedicalDiagnosisGraph {
 		genTheta();
 	}
 
+	public double[] getArrayTheta(){
+		double[] arraytheta = new double[thetalength];
+		int i = 0;
+		for (Enumeration e = theta.elements(); e.hasMoreElements();){
+			double[] t = (double[])(e.nextElement());
+			for (int j = 0; j < t.length; j++) {
+				arraytheta[i++] = t[j];
+			}
+		}
+		return arraytheta;
+	}
+
 	public Vector<double[]> getTheta(){
 		return theta;
 	}
 
 	public void genTheta() {
+		int length = 0;
 		theta = new Vector<>();
 		for (Enumeration e = nodes.elements(); e.hasMoreElements(); ) {
 			MedicalDiagnosisGraphNode node = (MedicalDiagnosisGraphNode)(e.nextElement());
 			theta.add(node.get_function_values());
+			length += node.get_function_values().length;
 		}
+		thetalength = length;
 	}
 
 	public void printTheta(){
@@ -288,6 +305,18 @@ public class MedicalDiagnosisGraph {
 	public void print(PrintStream out){
 		BayesNet bn = get_bayes_net();
 		bn.print(out);
+	}
+
+	/**
+	 * Get the node of given name in the network.
+	 */
+	public MedicalDiagnosisGraphNode get_node(String name) {
+		for(Enumeration e = nodes.elements(); e.hasMoreElements();){
+			MedicalDiagnosisGraphNode node = (MedicalDiagnosisGraphNode)(e.nextElement());
+			if(node.get_name().equals(name))
+				return node;
+		}
+		return null;
 	}
 
 	/**

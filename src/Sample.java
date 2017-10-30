@@ -27,6 +27,12 @@ class Sample {
         weight = w;
     }
 
+    public String getIncompleteVar(){
+        if(incomplete == -1)
+            return "";
+        return getName(incomplete);
+    }
+
     public String getName(int index){
         return names[index];
     }
@@ -120,6 +126,16 @@ class Sample {
             System.out.print(names[i] + ": " + values[i] + "\t");
         }
         System.out.println("weight: " + weight);
+    }
+
+    public boolean match(String[][] pv){
+        for (int i = 0; i < pv.length; i++) {
+            String name = pv[i][0];
+            String value = pv[i][1];
+            if(!getValue(name).equals(value))
+                return false;
+        }
+        return true;
     }
 
 }

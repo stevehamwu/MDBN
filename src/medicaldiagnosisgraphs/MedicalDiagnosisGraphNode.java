@@ -99,6 +99,15 @@ public class MedicalDiagnosisGraphNode {
     public double[] get_function_values(int index) { return pf.get_values(); }
 
     /**
+     * Set a single value of the probability function in the
+     * node given a list of pairs (Variable Value). The list
+     * specifies which element of the function is referred to.
+     */
+    public void set_function_value(String variable_value_pairs[][], double value){
+        pf.set_value(variable_value_pairs, value);
+    }
+
+    /**
      * Set an array containing probability values;
      */
     public void set_function_values(double[] fv){
