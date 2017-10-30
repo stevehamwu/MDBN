@@ -1,17 +1,24 @@
 package medicaldiagnosisgraphs;
 
+import BayesianNetworks.BayesNet;
+import BayesianNetworks.DiscreteVariable;
+import BayesianNetworks.ProbabilityFunction;
+import BayesianNetworks.ProbabilityVariable;
+import InterchangeFormat.IFException;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
-import java.util.*;
-
-import BayesianNetworks.*;
-import InterchangeFormat.IFException;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Vector;
 
 public class MedicalDiagnosisGraph {
 	BayesNet bn;
 
 	Vector nodes = new Vector();
+
+	Vector<double[]> theta;
 
 	private final String defaultBayesNetName = "MedicalDiagnosisNetwork";
 
@@ -27,6 +34,7 @@ public class MedicalDiagnosisGraph {
 	public MedicalDiagnosisGraph(BayesNet bn) {
 		this.bn = new BayesNet(bn);
 		convert_bayes_net();
+		genTheta();
 	}
 
 	/*
@@ -35,6 +43,29 @@ public class MedicalDiagnosisGraph {
 	public MedicalDiagnosisGraph(String filename) throws FileNotFoundException, IFException {
 		bn = new BayesNet(new java.io.DataInputStream(new FileInputStream(filename)));
 		convert_bayes_net();
+		genTheta();
+	}
+
+	public Vector<double[]> getTheta(){
+		return theta;
+	}
+
+	public void genTheta() {
+		theta = new Vector<>();
+		for (Enumeration e = nodes.elements(); e.hasMoreElements(); ) {
+			MedicalDiagnosisGraphNode node = (MedicalDiagnosisGraphNode)(e.nextElement());
+			theta.add(node.get_function_values());
+		}
+	}
+
+	public void printTheta(){
+		for (Enumeration e = theta.elements(); e.hasMoreElements();) {
+			double[] thetat = (double[])(e.nextElement());
+			for(double t:thetat){
+				System.out.print(t + " ");
+			}
+			System.out.println();
+		}
 	}
 
  /*

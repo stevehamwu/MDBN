@@ -94,10 +94,9 @@ public class MedicalDiagnosisGraphNode {
     }
 
     /**
-     * Get an array containing probability values;*/
-    public double[] get_function_values(int index){
-        return pf.get_values();
-    }
+     * Get an array containing probability values;
+     */
+    public double[] get_function_values(int index) { return pf.get_values(); }
 
     /**
      * Set an array containing probability values;
@@ -187,4 +186,6 @@ public class MedicalDiagnosisGraphNode {
     public Vector get_children() {
         return children;
     }
+
+
 }
