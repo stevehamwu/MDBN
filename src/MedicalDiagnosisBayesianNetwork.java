@@ -1,12 +1,16 @@
 import InterchangeFormat.IFException;
 import medicaldiagnosisgraphs.MedicalDiagnosisGraph;
+import medicaldiagnosisgraphs.MedicalDiagnosisGraphNode;
 
-import java.io.FileNotFoundException;
+import java.io.*;
+import java.util.Enumeration;
 import java.util.Vector;
 
 public class MedicalDiagnosisBayesianNetwork {
-    private static final String bnfile = "solved_alarm.bif";  //BayesianNetwork file
+    private static final String bnfile = "alarm_zeros.bif";  //BayesianNetwork file
+    private static final String initfile = "init_alarm.bif";    //Initial file
     private static final String sfile = "records.dat"; //Sample file
+    private static final String outfile = "alarm_result.bif";   //Output file
     private MedicalDiagnosisGraph mdg;
     private BayesianTrainer trainer;
     private Vector<Sample> slist;
@@ -14,6 +18,8 @@ public class MedicalDiagnosisBayesianNetwork {
     public MedicalDiagnosisBayesianNetwork() {
         try {
             mdg = new MedicalDiagnosisGraph("./data/" + bnfile);
+            initMDG();
+            save(initfile);
             trainer = new BayesianTrainer(mdg);
         } catch (FileNotFoundException e) {
             System.out.println("File not found!!!");
@@ -60,10 +66,46 @@ public class MedicalDiagnosisBayesianNetwork {
         return diff;
     }
 
+    public void save(String filename){
+        try {
+            File file = new File("./data/" + filename);
+            if(!file.exists())
+                file.createNewFile();
+            FileOutputStream fos = new FileOutputStream(file);
+            PrintStream ps = new PrintStream(fos);
+            mdg.save_bif(ps);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void initMDG(){
+        for(Enumeration e = mdg.elements(); e.hasMoreElements(); ){
+            MedicalDiagnosisGraphNode node = (MedicalDiagnosisGraphNode)(e.nextElement());
+            double[] probs = node.get_function_values();
+            int totalsize = probs.length;
+            int length = node.get_number_values();
+            int interval = totalsize/length;
+            for (int i = 0; i < interval; i++) {
+                double curr = 1.0;
+                int j;
+                for (j = 0; j < length - 1; j++) {
+                    double rd = Math.random()*curr;
+                    probs[i + interval*j] = rd;
+                    curr -= rd;
+                }
+                probs[i + interval*j] = curr;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         MedicalDiagnosisBayesianNetwork mdbn = new MedicalDiagnosisBayesianNetwork();
-        double tolerance = 0.001;
+        double tolerance = 0.00001;
         int max = 100;
         mdbn.train(tolerance, max);
+        mdbn.save(outfile);
     }
 }

@@ -20,6 +20,7 @@ public class MedicalDiagnosisGraphNode {
     private final String defaultMedicalDiagnosisGraphNodeValues[] = {"true", "false"};
     private final BayesNet defaultMedicalDiagnosisGraphNodeBayesNet = null;
     private final Vector defaultMedicalDiagnosisGraphNodeProperties = null;
+    Vector<String[][]> pstr = new Vector<>();
 
     /*
      * Constructor for a MedicalDiagnosisGraphNode object. The created
@@ -34,6 +35,8 @@ public class MedicalDiagnosisGraphNode {
         pv = new ProbabilityVariable(defaultMedicalDiagnosisGraphNodeBayesNet, name, BayesNet.INVALID_INDEX, defaultMedicalDiagnosisGraphNodeValues, defaultMedicalDiagnosisGraphNodeProperties);
 
         init_dists();
+
+        pstr = Cartesian_product();
     }
 
     /*
@@ -44,6 +47,7 @@ public class MedicalDiagnosisGraphNode {
         this.mdg = mdg;
         this.pv = pv;
         this.pf = pf;
+        pstr = Cartesian_product();
     }
 
     /*
@@ -75,6 +79,57 @@ public class MedicalDiagnosisGraphNode {
             dists[i] = new_value;
 
         pf = new ProbabilityFunction(defaultMedicalDiagnosisGraphNodeBayesNet, pvs, dists, defaultMedicalDiagnosisGraphNodeProperties);
+    }
+
+    public Vector<String[][]> get_prob_string() {
+        return pstr;
+    }
+
+    //get cartesian product of all ProbabilityVariables's values
+    private Vector<String[][]> Cartesian_product(){
+        ProbabilityVariable[] pfs = (ProbabilityVariable[]) pf.get_variables();
+        Vector<String[][]> product = new Vector<String[][]>();
+        for (int i = 0; i < pfs[0].get_values().length; i++) {
+            String[] s = new String[2];
+            s[0] = pfs[0].get_name();
+            s[1] = pfs[0].get_values()[i];
+            String[][] str = new String[][]{s};
+            product.add(str);
+        }
+
+        for (int i = 1; i < pfs.length; i++) {
+            int length = pfs[i].get_values().length;
+            String[][] s = new String[length][2];
+            for (int j = 0; j < length; j++) {
+                s[j][0] = pfs[i].get_name();
+                s[j][1] = pfs[i].get_values()[j];
+            }
+            product = join(product, s);
+        }
+        return product;
+    }
+
+    private Vector<String[][]> join(Vector<String[][]> value1, String[][] value2){
+        Vector<String[][]> value = new Vector<>();
+        for(Enumeration e = value1.elements(); e.hasMoreElements();){
+            String[][] v1 = (String[][])(e.nextElement());
+            /*for (int i = 0; i < value2.length; i++) {
+                value.add(extend(v1, value2[i]));
+            }*/
+            for(String[] v2:value2){
+                value.add(extend(v1, v2));
+            }
+        }
+
+        return value;
+    }
+
+    private String[][] extend(String[][] str1, String[] str2){
+        String[][] str = new String[str1.length+1][2];
+        System.arraycopy(str1, 0, str, 0, str1.length);
+        System.arraycopy(str2, 0, str[str.length-1], 0, 2);
+
+        return str;
     }
 
     /**

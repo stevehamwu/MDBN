@@ -1,4 +1,3 @@
-import BayesianNetworks.ProbabilityVariable;
 import medicaldiagnosisgraphs.MedicalDiagnosisGraph;
 import medicaldiagnosisgraphs.MedicalDiagnosisGraphNode;
 
@@ -61,8 +60,9 @@ public class BayesianTrainer {
     public void M_Step(){
         for(Enumeration e = mdg.elements();e.hasMoreElements(); ){
             MedicalDiagnosisGraphNode node = (MedicalDiagnosisGraphNode)(e.nextElement());
-            ProbabilityVariable[] pfs = (ProbabilityVariable[]) node.get_Prob().get_variables();
-            Vector<String[][]> product = Cartesian_product(pfs);
+//            ProbabilityVariable[] pfs = (ProbabilityVariable[]) node.get_Prob().get_variables();
+            Vector<String[][]> product = node.get_prob_string();
+
             /*for (int i = 0; i < product.size(); i++) {
                 String[][] prod = product.elementAt(i);
                 for (int j = 0; j < prod.length; j++) {
@@ -77,75 +77,57 @@ public class BayesianTrainer {
 
     private void updateProb(Vector<String[][]> pvs) {
         for (Enumeration e = pvs.elements(); e.hasMoreElements();){
-            double weight = 0.0;
+            double weight1 = 0.0, weight2 = 0.0;
             String[][] pv = (String[][])(e.nextElement());
+            String[][] pv_parents = null;
+            boolean flag = false;
+            if(pv.length == 1){
+                weight2 = slist.size();
+                flag = true;
+            }else {
+                pv_parents = new String[pv.length-1][2];
+                for (int i = 0; i < pv.length - 1; i++) {
+                    pv_parents[i] = pv[i+1];
+                }
+            }
             String name = pv[0][0];
             for (Enumeration e1 = slist.elements(); e1.hasMoreElements();){
                 Sample sample = (Sample)(e1.nextElement());
                 if(sample.match(pv)){
-                    weight += sample.getWeight();
+                    weight1 += sample.getWeight();
                 }else {
                     for(Sample comsample:sample.getComsamples()){
                         if(comsample.match(pv)){
-                            weight += comsample.getWeight();
+                            weight1 += comsample.getWeight();
                             break;
                         }
                     }
                 }
+                if(!flag){
+                    if(sample.match(pv_parents)){
+                        weight2 += sample.getWeight();
+                    }else{
+                        for(Sample comsample:sample.getComsamples()){
+                            if(comsample.match(pv_parents)){
+                                weight2 += comsample.getWeight();
+                                break;
+                            }
+                        }
+                    }
+                }
             }
-            double prob = weight/slist.size();
+            double prob;
+            if(weight2 == 0.0){
+                prob = 0.0;
+                System.out.println("");
+            }else{
+                prob = weight1/weight2;
+            }
             MedicalDiagnosisGraphNode node = mdg.get_node(name);
             node.set_function_value(pv, prob);
         }
     }
 
-    //get cartesian product of all ProbabilityVariables's values
-    private Vector<String[][]> Cartesian_product(ProbabilityVariable[] pfs){
-        Vector<String[][]> product = new Vector<String[][]>();
-        for (int i = 0; i < pfs[0].get_values().length; i++) {
-            String[] s = new String[2];
-            s[0] = pfs[0].get_name();
-            s[1] = pfs[0].get_values()[i];
-            String[][] str = new String[][]{s};
-            product.add(str);
-        }
 
-        for (int i = 1; i < pfs.length; i++) {
-            int length = pfs[i].get_values().length;
-            String[][] s = new String[length][2];
-            for (int j = 0; j < length; j++) {
-                s[j][0] = pfs[i].get_name();
-                s[j][1] = pfs[i].get_values()[j];
-            }
-            product = join(product, s);
-        }
-        return product;
-    }
-
-    private Vector<String[][]> join(Vector<String[][]> value1, String[][] value2){
-        Vector<String[][]> value = new Vector<>();
-        for(Enumeration e = value1.elements(); e.hasMoreElements();){
-            String[][] v1 = (String[][])(e.nextElement());
-            for (int i = 0; i < value2.length; i++) {
-                value.add(extend(v1, value2[i]));
-            }
-            for(String[] v2:value2){
-                value.add(extend(v1, v2));
-            }
-        }
-
-        return value;
-    }
-
-    private String[][] extend(String[][] str1, String[] str2){
-        String[][] str = new String[str1.length+1][2];
-        int i;
-        for (i = 0; i < str1.length; i++) {
-            str[i] = str1[i];
-        }
-        str[i] = str2;
-
-        return str;
-    }
 
 }
