@@ -308,6 +308,15 @@ public class MedicalDiagnosisGraph {
 	}
 
 	/**
+	 * Get the node of given index in the network.
+	 */
+	public MedicalDiagnosisGraphNode get_node(int index) {
+		if(index < nodes.size() && index > -1)
+			return (MedicalDiagnosisGraphNode) nodes.elementAt(index);
+		return null;
+	}
+
+	/**
 	 * Get the node of given name in the network.
 	 */
 	public MedicalDiagnosisGraphNode get_node(String name) {

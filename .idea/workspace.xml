@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ad9d87e-4dc3-4c3f-bce2-d2638a46ab24" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/alarm_output_alarm_com.bif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/alarm_output_solved_alarm.bif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/alarm_result.bif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/alarm_result1.bif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/init_alarm.bif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/init_alarm1.bif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/solved_alarm.bif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/test1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/test2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/alarm_result2.bif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/init_alarm2.bif" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BayesianTrainer.java" afterPath="$PROJECT_DIR$/src/BayesianTrainer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MedicalDiagnosisBayesianNetwork.java" afterPath="$PROJECT_DIR$/src/MedicalDiagnosisBayesianNetwork.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/medicaldiagnosisgraphs/MedicalDiagnosisGraphNode.java" afterPath="$PROJECT_DIR$/src/medicaldiagnosisgraphs/MedicalDiagnosisGraphNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test.java" afterPath="$PROJECT_DIR$/src/test.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/alarm_result.bif" afterPath="$PROJECT_DIR$/data/alarm_result.bif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/init_alarm.bif" afterPath="$PROJECT_DIR$/data/init_alarm.bif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Sample.java" afterPath="$PROJECT_DIR$/src/Sample.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/medicaldiagnosisgraphs/MedicalDiagnosisGraph.java" afterPath="$PROJECT_DIR$/src/medicaldiagnosisgraphs/MedicalDiagnosisGraph.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,10 +26,12 @@
       <file leaf-file-name="Sample.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Sample.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-540">
-              <caret line="9" column="57" lean-forward="true" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
+            <state relative-caret-position="-74">
+              <caret line="83" column="64" lean-forward="false" selection-start-line="83" selection-start-column="64" selection-end-line="83" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1885#1886#0" expanded="true" />
+                <element signature="e#1926#1927#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -45,13 +40,13 @@
       <file leaf-file-name="MedicalDiagnosisGraph.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/medicaldiagnosisgraphs/MedicalDiagnosisGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="313" column="0" lean-forward="false" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
+            <state relative-caret-position="227">
+              <caret line="314" column="48" lean-forward="false" selection-start-line="314" selection-start-column="48" selection-end-line="314" selection-end-column="48" />
               <folding>
                 <element signature="e#1642#1643#0" expanded="true" />
                 <element signature="e#1661#1662#0" expanded="true" />
-                <element signature="e#7870#7871#0" expanded="true" />
-                <element signature="e#7900#7901#0" expanded="true" />
+                <element signature="e#8106#8107#0" expanded="true" />
+                <element signature="e#8136#8137#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MedicalDiagnosisBayesianNetwork.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MedicalDiagnosisBayesianNetwork.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MedicalDiagnosisBayesianNetwork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="62" column="52" lean-forward="true" selection-start-line="62" selection-start-column="52" selection-end-line="62" selection-end-column="52" />
+            <state relative-caret-position="144">
+              <caret line="17" column="46" lean-forward="true" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BayesianTrainer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BayesianTrainer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BayesianTrainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1039">
-              <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+            <state relative-caret-position="517">
+              <caret line="66" column="55" lean-forward="true" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#441#442#0" expanded="true" />
@@ -182,12 +177,12 @@
         <option value="$PROJECT_DIR$/src/ReadSamples.java" />
         <option value="$PROJECT_DIR$/data/alarm_com.bif" />
         <option value="$PROJECT_DIR$/src/DJ.java" />
-        <option value="$PROJECT_DIR$/src/Sample.java" />
-        <option value="$PROJECT_DIR$/src/medicaldiagnosisgraphs/MedicalDiagnosisGraph.java" />
         <option value="$PROJECT_DIR$/src/MedicalDiagnosisBayesianNetwork.java" />
         <option value="$PROJECT_DIR$/src/BayesianTrainer.java" />
         <option value="$PROJECT_DIR$/src/test.java" />
         <option value="$PROJECT_DIR$/src/medicaldiagnosisgraphs/MedicalDiagnosisGraphNode.java" />
+        <option value="$PROJECT_DIR$/src/medicaldiagnosisgraphs/MedicalDiagnosisGraph.java" />
+        <option value="$PROJECT_DIR$/src/Sample.java" />
       </list>
     </option>
   </component>
@@ -494,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1509383266639</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="debugged">
+      <created>1509466850540</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1509466850540</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -556,7 +558,8 @@
     <MESSAGE value="test commit" />
     <MESSAGE value="Estep_EM_Algorithm" />
     <MESSAGE value="Mstep_EM_Algorithm" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mstep_EM_Algorithm" />
+    <MESSAGE value="debugged" />
+    <option name="LAST_COMMIT_MESSAGE" value="debugged" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -580,13 +583,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/lib/BayesNets.jar!/Parsers/BIFv015/BIFv015TokenManager.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="799" column="19" lean-forward="false" selection-start-line="799" selection-start-column="19" selection-end-line="799" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/BayesNets.jar!/Parsers/BIFv015/BIFv015.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
@@ -644,6 +640,8 @@
           <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1885#1886#0" expanded="true" />
+            <element signature="e#1926#1927#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -653,8 +651,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#7749#7750#0" expanded="false" />
-            <element signature="e#7768#7769#0" expanded="false" />
+            <element signature="e#7985#7986#0" expanded="false" />
+            <element signature="e#8004#8005#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -664,8 +662,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#7749#7750#0" expanded="false" />
-            <element signature="e#7768#7769#0" expanded="false" />
+            <element signature="e#7985#7986#0" expanded="false" />
+            <element signature="e#8004#8005#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -933,29 +931,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540">
-          <caret line="9" column="57" lean-forward="true" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/medicaldiagnosisgraphs/MedicalDiagnosisGraph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="313" column="0" lean-forward="false" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
-          <folding>
-            <element signature="e#1642#1643#0" expanded="true" />
-            <element signature="e#1661#1662#0" expanded="true" />
-            <element signature="e#7870#7871#0" expanded="true" />
-            <element signature="e#7900#7901#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/src.zip!/java/util/Vector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-366">
@@ -976,20 +951,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MedicalDiagnosisBayesianNetwork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="62" column="52" lean-forward="true" selection-start-line="62" selection-start-column="52" selection-end-line="62" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BayesianTrainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1039">
-          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="0" />
+        <state relative-caret-position="517">
+          <caret line="66" column="55" lean-forward="true" selection-start-line="66" selection-start-column="55" selection-end-line="66" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#441#442#0" expanded="true" />
@@ -998,6 +963,49 @@
             <element signature="e#1182#1183#0" expanded="true" />
             <element signature="e#1227#1228#0" expanded="true" />
             <element signature="e#1253#1254#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/medicaldiagnosisgraphs/MedicalDiagnosisGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="314" column="48" lean-forward="false" selection-start-line="314" selection-start-column="48" selection-end-line="314" selection-end-column="48" />
+          <folding>
+            <element signature="e#1642#1643#0" expanded="true" />
+            <element signature="e#1661#1662#0" expanded="true" />
+            <element signature="e#8106#8107#0" expanded="true" />
+            <element signature="e#8136#8137#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Sample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-74">
+          <caret line="83" column="64" lean-forward="false" selection-start-line="83" selection-start-column="64" selection-end-line="83" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1885#1886#0" expanded="true" />
+            <element signature="e#1926#1927#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/alarm_result.bif">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MedicalDiagnosisBayesianNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="17" column="46" lean-forward="true" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

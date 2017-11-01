@@ -60,25 +60,28 @@ class Sample {
 
     public void setValues(String[] values){
         this.values = values;
+        updateIncom();
     }
 
     public Sample(String[] values){
         setValues(values);
+        updateIncom();
     }
 
     public boolean isComplete(){
+        return (incomplete == -1);
+    }
+
+    private void updateIncom(){
         for(int i = 0; i < length; i++){
             if(values[i].equals("?")){
                 incomplete = i;
-                return false;
             }
         }
-        return true;
     }
 
     public void completement(MedicalDiagnosisGraph mdg){
-        Vector<MedicalDiagnosisGraphNode> nodes = mdg.get_nodes();
-        MedicalDiagnosisGraphNode node = nodes.elementAt(incomplete);
+        MedicalDiagnosisGraphNode node = mdg.get_node(incomplete);
         int num = node.get_number_values();
         comsamples = new Sample[num];
         double[] prob = new double[num];
